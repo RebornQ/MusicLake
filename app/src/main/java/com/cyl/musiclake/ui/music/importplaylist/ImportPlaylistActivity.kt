@@ -27,7 +27,6 @@ import kotlinx.android.synthetic.main.activity_import_playlist.*
 @Suppress("UNUSED_ANONYMOUS_PARAMETER")
 class ImportPlaylistActivity : BaseActivity<BasePresenter<BaseContract.BaseView>>() {
 
-    private val TAG = "ImportPlaylistActivity"
     var mAdapter: SongAdapter? = null
     var name: String? = null
     var vendor: String? = null
@@ -158,7 +157,6 @@ class ImportPlaylistActivity : BaseActivity<BasePresenter<BaseContract.BaseView>
             if (view.id != R.id.iv_more) {
                 PlayManager.play(position, result.musicList, Constants.PLAYLIST_DOWNLOAD_ID + result.pid)
                 mAdapter?.notifyDataSetChanged()
-                NavigationHelper.navigateToPlaying(this@ImportPlaylistActivity, view.findViewById(R.id.iv_cover))
             }
         }
         mAdapter?.setOnItemChildClickListener { _, _, position ->

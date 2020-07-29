@@ -1,5 +1,7 @@
 # MusicLake [![Build Status](https://travis-ci.org/caiyonglong/MusicLake.svg?branch=develop)](https://travis-ci.org/caiyonglong/MusicLake)
 
+[MediaPlayer、ExoPlayer音乐库封装](https://github.com/caiyonglong/MusicLake/tree/dev_musiclib)
+
 # 因收到网易云音乐和QQ音乐的官方警告函，我们已关闭app的相关api服务,不再提供任何apk。
 
 # 编译&服务器部署 
@@ -17,16 +19,13 @@
 - [PC端](https://github.com/sunzongzheng/music)
 
 - [交流群:549939157](https://jq.qq.com/?_wv=1027&k=5XrNrCJ) 加群需要问题验证，正确回答：github
+- [交流2号群:824825515](https://jq.qq.com/?_wv=1027&k=h1t2ST8z) 因为QQ群人数限制，所以新建2号群，欢迎加入交流
 
 ![功能](screenshots/features.png)
 
 
 ### 开源不易，有兴趣可给个star，支持一下哦！
 持续更新，有什么问题可以提[issues](https://github.com/caiyonglong/MusicLake/issues)！
-
-# *新功能*
-- 项目迁移AndroidX
-- 接入YouTube(目前仅支持搜索，播放)
 
 # 计划
 - [ ] 整理文档
