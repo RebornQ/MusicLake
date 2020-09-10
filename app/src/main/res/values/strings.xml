@@ -14,6 +14,7 @@
     <string name="discover">发现</string>
     <string name="charts">排行榜</string>
     <string name="mv">MV</string>
+    <string name="video_title">视频</string>
 
     <string name="login_hint">点我登录</string>
     <string name="un_login_tips">暂未登录</string>
@@ -167,6 +168,7 @@
     <string name="lyric_loading">加载中&#8230;</string>
     <string name="tip_empty_song">空空如也</string>
     <string name="tip_empty_queue">播放队列为空</string>
+    <string name="tip_empty_comment">暂无评论</string>
     <string name="tip_empty_playlist">暂无歌单，快去新建吧！</string>
     <string name="recent_update">最近更新：%s</string>
     <string name="recent_update_title">最近更新</string>
@@ -516,7 +518,7 @@
 
     <string name="action_share">Share</string>
     <string name="action_reply">Reply</string>
-    <string name="copyright_info">Copyright© 2019 MusicLake Group</string>
+    <string name="copyright_info">Copyright© 2020 MusicLake Group</string>
     <string name="delete_playlist_tips">是否删除这个歌单？</string>
     <string name="clear_history_playlist_tips">是否清空播放历史？</string>
     <string name="choose_singer">选择歌手</string>

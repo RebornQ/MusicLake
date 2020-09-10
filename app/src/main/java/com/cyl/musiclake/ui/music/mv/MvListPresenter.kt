@@ -13,7 +13,11 @@ import javax.inject.Inject
  */
 class MvListPresenter @Inject
 constructor() : BasePresenter<MvListContract.View>(), MvListContract.Presenter {
-    private val mvModel = MvModel()
+    private val mvModel = VideoLoadModel()
+
+    /**
+     * 获取MV精选列表
+     */
     override fun loadPersonalizedMv() {
         mView?.showLoading()
         mvModel.loadPersonalizedMv(object : RequestCallBack<MvInfo> {

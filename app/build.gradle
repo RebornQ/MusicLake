@@ -3,28 +3,23 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
-// Load keystore
-def keystorePropertiesFile = rootProject.file("keystore.properties");
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 repositories {
     mavenCentral()
 }
 android {
     signingConfigs {
         release {
-            storeFile file(keystoreProperties['STOREFILE'])
-            storePassword keystoreProperties['STOREPASSWORD']
-            keyAlias keystoreProperties['KEYALIAS']
-            keyPassword keystoreProperties['KEYPASSWORD']
+            keyAlias 'musiclake'
+            keyPassword '123123'
+            storeFile file('../app/jks/musiclake.jks')
+            storePassword '123123'
         }
     }
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '29.0.3'
     defaultConfig {
         applicationId "com.cyl.musiclake"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 35
         versionName "5.0.4"
         multiDexEnabled true
@@ -46,7 +41,7 @@ android {
             buildConfigField "boolean", "IS_LOCAL", "true"//是否屏蔽下载功能
         }
         debug {
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             //自定义配置参数
             buildConfigField "boolean", "HAS_DOWNLOAD", "true"//是否屏蔽下载功能
             buildConfigField "boolean", "IS_LOCAL", "true"//是否屏蔽下载功能
@@ -73,7 +68,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta8'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-rc1'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
@@ -127,7 +122,15 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
     implementation 'com.amitshekhar.android:debug-db:1.0.3'
-    implementation 'com.devbrackets.android:exomedia:4.3.0'
+//    implementation 'com.devbrackets.android:exomedia:4.3.0'
+
+    //exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.11.3'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.11.3'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.3'
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.3'
+    implementation "com.google.android.exoplayer:extension-mediasession:2.11.3"
 
     //Eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
@@ -174,7 +177,7 @@ dependencies {
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.3'
 
     //Android音乐接口Api
-    implementation 'com.github.caiyonglong:musicapi:1.0.8'
+    implementation 'com.github.caiyonglong:musicapi:1.1.1'
 //    implementation project(':musicapi')
     //缓存
     implementation 'com.danikula:videocache:2.7.1'
