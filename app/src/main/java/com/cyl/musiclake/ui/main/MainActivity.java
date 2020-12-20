@@ -275,6 +275,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             case R.id.nav_menu_about:
                 mTargetClass = AboutActivity.class;
                 break;
+            case R.id.nav_menu_test:
+                mTargetClass = TestActivity.class;
+                break;
             case R.id.nav_menu_equalizer:
                 NavigationHelper.INSTANCE.navigateToSoundEffect(this);
                 break;
@@ -312,7 +315,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawers();
-        } else if (isNavigatingMain()) {
+        } else if (isBackToDesktop()) {
             Intent home = new Intent(Intent.ACTION_MAIN);
             home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             home.addCategory(Intent.CATEGORY_HOME);
@@ -334,7 +337,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (isNavigatingMain()) {
+                if (isBackToDesktop()) {
                     mDrawerLayout.openDrawer(GravityCompat.START);
                 } else {
                     super.onBackPressed();
@@ -349,7 +352,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean isNavigatingMain() {
+    /**
+     * 是否返回到桌面
+     */
+    private boolean isBackToDesktop() {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         return (currentFragment instanceof MainFragment);
     }

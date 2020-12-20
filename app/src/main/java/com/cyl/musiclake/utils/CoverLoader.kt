@@ -22,7 +22,7 @@ import com.cyl.musiclake.bean.Music
  */
 object CoverLoader {
     private val TAG = "CoverLoader"
-    val coverUriByRandom: Int = R.drawable.default_cover
+    val coverUriByRandom: Int = R.drawable.default_cover_place
 
     fun getCoverUri(context: Context, albumId: String): String? {
         if (albumId == "-1") {
@@ -87,7 +87,7 @@ object CoverLoader {
         val url = MusicUtils.getAlbumPic(music.coverUri, music.type, MusicUtils.PIC_SIZE_BIG)
         GlideApp.with(mContext)
                 .asBitmap()
-                .load(url ?: R.drawable.default_cover)
+                .load(url ?: R.drawable.default_cover_place)
                 .error(coverUriByRandom)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into<CustomTarget<Bitmap>>(object : CustomTarget<Bitmap>() {
@@ -108,7 +108,7 @@ object CoverLoader {
         val url = getCoverUriByMusic(music, true)
         GlideApp.with(mContext)
                 .asBitmap()
-                .load(url ?: R.drawable.default_cover)
+                .load(url ?: R.drawable.default_cover_place)
                 .error(coverUriByRandom)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView)
@@ -137,8 +137,8 @@ object CoverLoader {
         if (imageView == null) return
         GlideApp.with(mContext)
                 .load(url)
-                .placeholder(R.drawable.holder_with_bg)
-                .error(R.drawable.holder_with_bg)
+                .placeholder(R.drawable.default_cover_place)
+                .error(R.drawable.default_cover_place)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView)
